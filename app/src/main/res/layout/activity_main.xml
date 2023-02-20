@@ -3,152 +3,186 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
+
 
     <TextView
-        android:id="@+id/text_view_info"
+        android:id="@+id/numInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:gravity="fill_horizontal"
-        android:maxWidth="5000sp"
-        android:maxHeight="3000sp"
-        android:text="@string/info"
-        android:textColor="@color/blue"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        android:text=""
+        android:textSize="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276"
-        tools:ignore="Deprecated,ExtraText" />
+        tools:ignore="MissingConstraints"></TextView>
 
     <TextView
-        android:id="@+id/text_view_name"
+        android:id="@+id/ans"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/name"
-        android:textColor="@color/red"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="0"
+        android:textSize="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38"
-        tools:ignore="Deprecated,ExtraText"
-        />
+        tools:ignore="MissingConstraints"></TextView>
 
-    <EditText
-        android:id="@+id/editTextName"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="428dp"
-        android:ems="10"
-        android:hint="Input your name"
-        android:inputType="text"
-        android:textAllCaps="true"
-        android:textColorHint="#7A7272"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/text_view_age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/age"
-        android:textColor="@color/red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48"
-        tools:ignore="Deprecated,ExtraText" />
-
-    <EditText
-        android:id="@+id/editTextAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="356dp"
-        android:ems="10"
-        android:hint="Input your age"
-        android:inputType="number"
-        android:textColorHint="#7A7272"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/text_view_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pwd"
-        android:textColor="@color/red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587"
-        tools:ignore="Deprecated,ExtraText" />
-
-    <EditText
-        android:id="@+id/editTextPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="280dp"
-        android:ems="10"
-        android:hint="Input your password"
-        android:inputType="textPassword"
-        android:textColorHint="#7A7272"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/text_view_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:text="@string/phone"
-        android:textColor="@color/red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"
-        tools:ignore="Deprecated,ExtraText" />
-
-    <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="204dp"
-        android:ems="10"
-        android:hint="Input your phone"
-        android:inputType="phone"
-        android:textColorHint="#7A7272"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:onClick="sendMessage"
-        tools:layout_editor_absoluteX="167dp"
-        tools:layout_editor_absoluteY="552dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:id="@+id/idline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                style="@style/digitbutton"
+                android:onClick="onDigitClick"
+                android:text="7" />
+
+            <Button
+                style="@style/digitbutton"
+                android:onClick="onDigitClick"
+                android:text="8" />
+
+            <Button
+                style="@style/digitbutton"
+                android:onClick="onDigitClick"
+                android:text="9" />
+
+            <Button
+                style="@style/operbutton"
+                android:onClick="onBackClick"
+                android:text="&lt;-" />
+
+            <Button
+                style="@style/operbutton"
+                android:onClick="onAllclearClick"
+                android:text="C" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/idline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                style="@style/digitbutton"
+                android:onClick="onDigitClick"
+                android:text="4" />
+
+            <Button
+                style="@style/digitbutton"
+                android:onClick="onDigitClick"
+                android:text="5" />
+
+            <Button
+                style="@style/digitbutton"
+                android:onClick="onDigitClick"
+                android:text="6" />
+
+            <Button
+                style="@style/operbutton"
+                android:onClick="onOperatorClick"
+                android:text="-" />
+
+            <Button
+                style="@style/operbutton"
+                android:onClick="onOperatorClick"
+                android:text="/" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/idline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                style="@style/digitbutton"
+                android:onClick="onDigitClick"
+                android:text="1" />
+
+            <Button
+                style="@style/digitbutton"
+                android:onClick="onDigitClick"
+                android:text="2" />
+
+            <Button
+                style="@style/digitbutton"
+                android:onClick="onDigitClick"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/add"
+                android:onClick="onOperatorClick"
+                style="@style/operbutton"
+                android:text="+" />
+
+            <Button
+                style="@style/operbutton"
+                android:onClick="onOperatorClick"
+                android:text="*" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/idline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                style="@style/digitbutton"
+                android:onClick="onDigitClick"
+                android:text="0" />
+
+            <Button
+                style="@style/operbuttonspe"
+                android:onClick="onEqualClick"
+                android:text="=" />
+
+            <Button
+                style="@style/operbutton"
+                android:text="." />
+
+            <Button
+                style="@style/operbutton"
+                android:onClick="onOperatorClick"
+                android:text="%" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
