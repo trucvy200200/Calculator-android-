@@ -42,10 +42,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void onEqualClick(View view) {
-        onEqual();
-        binding.numInput.setText(binding.ans.getText().toString().substring(1));
+        try {
+            onEqual();
+            binding.numInput.setText(binding.ans.getText().toString().substring(1));
+        } catch (Exception ex) {
+            Log.e("Equal error", ex.toString());
+            onAllclearClick(binding.ans);
+        }
     }
     public void onDigitClick(View view) {
+
+//        mark lastDot true if last character is dot
+        if (binding.numInput.getText().toString().length() > 0) {
+            if (binding.numInput.getText().toString().charAt(binding.numInput.getText().toString().length() - 1) == '.') {
+                lastDot = true;
+            }
+            else {
+                lastDot = false;
+            }
+        }
+
+//        if last character is already a dot and user click dot again
+//        do nothing
+        if (lastDot && ((Button)view).getText().toString().equals(".")) {
+            return;
+        }
+
+
         if (stateError) {
             binding.numInput.setText(((Button)view).toString());
             stateError = false;
@@ -77,6 +100,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBackClick(View view) {
+
+//        return if no input
+        if (binding.numInput.getText().toString().length() == 0) {
+            return;
+        }
+
 //        remove the last character
         binding.numInput.setText(binding.numInput.getText().toString().substring(0, binding.numInput.getText().toString().length() - 1));
         try {
@@ -86,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
             }
         } catch (Exception ex) {
             binding.ans.setText("");
-//            binding.ans.setVisibility(View.GONE);
             Log.e("Last character error", ex.toString());
         }
     }
@@ -94,26 +122,44 @@ public class MainActivity extends AppCompatActivity {
     public void onEqual() {
         if (lastNumberic && !stateError) {
             String txt = binding.numInput.getText().toString();
-            Expression expression = new ExpressionBuilder(txt).build();
-
             try {
-                double result = expression.evaluate();
-                Log.i("onEqual", String.valueOf(result));
+                Expression expression = new ExpressionBuilder(txt).build();
+                try {
+                    double result = expression.evaluate();
+                    Integer resultInt = null;
 
-                // Cast result to int if possible
-                if (result == (int) result) {
-                    binding.ans.setText("=" + String.valueOf((int)result));
-                };
+                    try {
+                        resultInt = (int) result;
+                    } catch (Exception ex) {
+                        Log.e("Cast error", ex.toString());
+                    }
 
-                binding.ans.setText("=" + String.valueOf(result));
+
+                    // check if result is integer and resultInt is not null
+                    if (resultInt != null && result == resultInt) {
+                        binding.ans.setText("=" + String.valueOf(resultInt));
+                    } else {
+                        binding.ans.setText("=" + String.valueOf(result));
+                    }
 
 
-            } catch (ArithmeticException ex) {
-                Log.e("Evaluate error: ", ex.toString());
-                binding.ans.setText("Error");
-                stateError = true;
-                lastNumberic = false;
+                } catch (ArithmeticException ex) {
+                    Log.e("Evaluate error: ", ex.toString());
+                    onAllclearClick(binding.ans);
+//                    binding.ans.setText("");
+//                    binding.numInput.setText("");
+//                    stateError = true;
+//                    lastNumberic = false;
+                }
+            } catch (Exception ex) {
+                Log.e("Expression error: ", ex.toString());
+//                binding.ans.setText("");
+//                binding.numInput.setText("");
+//                stateError = true;
+//                lastNumberic = false;
+                onAllclearClick(binding.ans);
             }
+
 
         }
     }

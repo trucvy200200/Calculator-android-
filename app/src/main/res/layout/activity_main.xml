@@ -172,6 +172,7 @@
 
             <Button
                 style="@style/operbutton"
+                android:onClick="onDigitClick"
                 android:text="." />
 
             <Button
